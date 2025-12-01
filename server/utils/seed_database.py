@@ -21,7 +21,12 @@ def create_app():
     return app
 
 def create_games():
-    """Create games, categories and publishers from CSV data for crowd funding platform"""
+    """
+    Creates games, categories, and publishers from CSV data for the crowd funding platform.
+    
+    Reads game data from a CSV file and creates corresponding database entries for games,
+    categories, and publishers. Assigns random star ratings between 3.0 and 5.0 to each game.
+    """
     app = create_app()
     
     with app.app_context():
@@ -84,6 +89,11 @@ def create_games():
         print(f"Added {game_count} games with {len(categories)} categories and {len(publishers)} publishers")
 
 def seed_database():
+    """
+    Seeds the database with initial game, category, and publisher data.
+    
+    This is the main entry point for database seeding operations.
+    """
     create_games()
 
 if __name__ == '__main__':
